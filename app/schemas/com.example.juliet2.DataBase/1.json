@@ -1,0 +1,51 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "31ab1e55ce5ac6557deffcfb7ec2553f",
+    "entities": [
+      {
+        "tableName": "Book",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`BookId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `BookName` TEXT, `BookDescription` TEXT, `BookType` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "BookId",
+            "columnName": "BookId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "BookName",
+            "columnName": "BookName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "BookDescription",
+            "columnName": "BookDescription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "BookType",
+            "columnName": "BookType",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "BookId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"31ab1e55ce5ac6557deffcfb7ec2553f\")"
+    ]
+  }
+}
