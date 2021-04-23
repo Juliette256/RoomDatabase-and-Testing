@@ -26,6 +26,6 @@ public interface DAO {
     @Delete
     void deleteAll(List<Book> books);
 
-    @Query("SELECT * FROM Book where BookName= :book and BookType= :type")
-    Book getUser(String book, String type);
+    @Query("Update Book Set BookType=:BookType, BookName=:BookName,BookDescription=:BookDescription WHERE BookId=:BookId")
+    void getBookById(String BookName, String BookType,String BookDescription,int BookId);
 }

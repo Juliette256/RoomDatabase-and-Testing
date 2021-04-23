@@ -97,6 +97,22 @@ public class ExampleUnitTest {
         Assert. assertEquals("NEW", books.get(0).getBookType());
     }
 
+    @Test
+    public void UpdateById(){
+        Book book = new Book(7,"","","");
+        dao.insert(book);
+
+        dao.getBookById("","","",7);
+        book.setBookName("Jack");
+        book.setBookType("new");
+        book.setBookDescription("maggie");
+
+        dao.update(book);
+
+        List<Book>books=dao.getAll();
+        Assert.assertEquals("Jack",books.get(0).getBookName());
+          }
+
 
 }
 
